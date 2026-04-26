@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: user-document-storage-service
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+aws:
+  s3:
+    bucket-name: ${AWS_S3_BUCKET_NAME:}
+    region: ${AWS_REGION:ap-southeast-2}
+    access-key: ${AWS_ACCESS_KEY_ID:}
+    secret-key: ${AWS_SECRET_ACCESS_KEY:}
+    # Set endpoint-override for local development with LocalStack
+    # endpoint-override: http://localhost:4566
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
